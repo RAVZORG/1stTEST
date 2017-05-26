@@ -6,7 +6,7 @@ define windows_updates::kb (
 
   case $ensure {
     'enabled', 'present': {
-      exec { "Install ${'kb4012216'}":
+      exec { "Install ${kb}":
         command  => template('windows_updates/install_kb.ps1.erb'),
         creates  => "C:\\ProgramData\\InstalledUpdates\\${kb}.flg",
         provider => 'powershell',
